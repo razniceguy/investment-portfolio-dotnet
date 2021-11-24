@@ -38,7 +38,7 @@ namespace InvestmentPortfolio
                 options.AddPolicy(name: MyAllowSpecificOrigins,
                                   builder =>
                                   {
-                                      builder.WithOrigins("http://localhost:3000", "https://api.binance.com", "https://localhost:44395");
+                                      builder.WithOrigins("http://localhost:3000", "https://api.binance.com", "https://localhost:44395", "https://investmentportfolio.azurewebsites.net");
                                   });
             });
         }
