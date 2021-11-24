@@ -103,7 +103,7 @@ namespace InvestmentPortfolio.Models
             };
             var client = new SecretClient(new Uri("https://investmentportfoliokeys.vault.azure.net/"), new DefaultAzureCredential(), options);
 
-            KeyVaultSecret secret = client.GetSecret("<mySecret>");
+            KeyVaultSecret secret = client.GetSecret(secretName);
 
             return secret.Value;
         }
