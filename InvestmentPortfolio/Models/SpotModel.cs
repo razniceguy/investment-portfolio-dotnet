@@ -7,6 +7,9 @@ using System.Globalization;
 using System.Text;
 using System;
 using System.Linq;
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
+using Azure.Core;
 
 namespace InvestmentPortfolio.Models
 {
@@ -30,7 +33,7 @@ namespace InvestmentPortfolio.Models
 
             string queryParam = "type=SPOT&timestamp=" + timeStamp;
 
-            string signature = CreateHashMACSHA256(queryParam, "<Enter your API Secret here>");
+            string signature = CreateHashMACSHA256(queryParam, GetSecret("X-MBX-API-SECRET"));
 
             string url = "https://api.binance.com/sapi/v1/accountSnapshot?" + queryParam + "&signature=" + signature;
 
@@ -39,7 +42,7 @@ namespace InvestmentPortfolio.Models
             HttpClient httpClient = new HttpClient();
 
             httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json"); 
-            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("X-MBX-APIKEY", "<Enter your API Key here>");
+            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("X-MBX-APIKEY", GetSecret("X-MBX-API-SECRET"));
 
             var response = await httpClient.SendAsync(request);
 
@@ -86,7 +89,24 @@ namespace InvestmentPortfolio.Models
             return new String(retval);
         }
 
+        public string GetSecret(string secretName)
+        {
+            SecretClientOptions options = new SecretClientOptions()
+            {
+                Retry =
+                {
+                    Delay= TimeSpan.FromSeconds(2),
+                    MaxDelay = TimeSpan.FromSeconds(16),
+                    MaxRetries = 5,
+                    Mode = RetryMode.Exponential
+                }
+            };
+            var client = new SecretClient(new Uri("https://investmentportfoliokeys.vault.azure.net/"), new DefaultAzureCredential(), options);
 
+            KeyVaultSecret secret = client.GetSecret("<mySecret>");
+
+            return secret.Value;
+        }
 
 
     }

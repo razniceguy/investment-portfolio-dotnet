@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Tutorials\\dotnet\\ASP\\InvestmentPortfolio\\InvestmentPortfolio\\InvestmentPortfolio.csproj": {}
+    "C:\\Tutorials\\dotnet\\ASP\\investment-portfolio-dotnet\\InvestmentPortfolio\\InvestmentPortfolio.csproj": {}
   },
   "projects": {
-    "C:\\Tutorials\\dotnet\\ASP\\InvestmentPortfolio\\InvestmentPortfolio\\InvestmentPortfolio.csproj": {
+    "C:\\Tutorials\\dotnet\\ASP\\investment-portfolio-dotnet\\InvestmentPortfolio\\InvestmentPortfolio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Tutorials\\dotnet\\ASP\\InvestmentPortfolio\\InvestmentPortfolio\\InvestmentPortfolio.csproj",
+        "projectUniqueName": "C:\\Tutorials\\dotnet\\ASP\\investment-portfolio-dotnet\\InvestmentPortfolio\\InvestmentPortfolio.csproj",
         "projectName": "InvestmentPortfolio",
-        "projectPath": "C:\\Tutorials\\dotnet\\ASP\\InvestmentPortfolio\\InvestmentPortfolio\\InvestmentPortfolio.csproj",
+        "projectPath": "C:\\Tutorials\\dotnet\\ASP\\investment-portfolio-dotnet\\InvestmentPortfolio\\InvestmentPortfolio.csproj",
         "packagesPath": "C:\\Users\\Rajes\\.nuget\\packages\\",
-        "outputPath": "C:\\Tutorials\\dotnet\\ASP\\InvestmentPortfolio\\InvestmentPortfolio\\obj\\",
+        "outputPath": "C:\\Tutorials\\dotnet\\ASP\\investment-portfolio-dotnet\\InvestmentPortfolio\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Rajes\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Azure.Identity": {
+              "target": "Package",
+              "version": "[1.5.0, )"
+            },
+            "Azure.Security.KeyVault.Secrets": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
