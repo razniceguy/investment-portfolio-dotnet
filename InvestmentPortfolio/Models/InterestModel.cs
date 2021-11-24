@@ -42,7 +42,7 @@ namespace InvestmentPortfolio.Models
             HttpClient httpClient = new HttpClient();
 
             httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
-            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("X-MBX-APIKEY", GetSecret("X-MBX-API-SECRET"));
+            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("X-MBX-APIKEY", GetSecret("X-MBX-APIKEY"));
 
             var response = await httpClient.SendAsync(request);
 
