@@ -11,7 +11,8 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: investmentportfoliowebapi
-
+  WORKING_DIRECTORY: .
+  
 jobs:
   build:
     runs-on: ubuntu-latest
