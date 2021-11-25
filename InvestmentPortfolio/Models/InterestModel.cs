@@ -31,7 +31,7 @@ namespace InvestmentPortfolio.Models
 
             string timeStamp = unixTimestamp.ToString() + "000";
 
-            string queryParam = "lendingType=DAILY&timestamp=" + timeStamp;
+            string queryParam = "lendingType=DAILY&size=4&timestamp=" + timeStamp;
 
             string signature = CreateHashMACSHA256(queryParam, GetSecret("X-MBX-API-SECRET"));
 
